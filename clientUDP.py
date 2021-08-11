@@ -4,6 +4,8 @@ import socket
 ip_addr = "localhost"
 port = 2710
 data = None
+servert=(ip_addr, port)
+
 
 
 def main():
@@ -15,14 +17,16 @@ def main():
     except socket.error:
         print(socket.error)
 
-    s.connect((ip_addr, port))
+    # s.connect((ip_addr, port))
     # for getting correct id
     while True:
-        data = s.recvfrom(port)
+        data,address = s.recvfrom(1024)
+        # print(data.decode())
         # Enter your bill id
         # "123456789"
-        s.sendto((input(data.decode())).encode())
-        data = s.recvfrom(port)
+        s.sendto(b"(input(data.decode())).encode()",servert)
+        data,address = s.recvfrom(1024)
+        print(data)
         if data.decode() != "Enter Correct Id":
             break
         print(data.decode())
@@ -30,8 +34,8 @@ def main():
     print(data.decode())
     # upto date or ur bill is
     if data.decode() != "Your bill is upto date":
-        s.sendto((input()).encode())
-        print((s.recvfrom(port)).decode())
+        s.sendto((input()).encode(),servert)
+        print((s.recvfrom(1024))[0].decode())
 
     s.close()
 
