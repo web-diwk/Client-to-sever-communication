@@ -2,6 +2,7 @@ import socket
 
 BUFFER_SIZE = 102400
 ispaid = False
+port = 12000
 
 try:
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

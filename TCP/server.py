@@ -1,5 +1,6 @@
 import socket
 
+
 ip_addr = "localhost"
 port = 2710
 ispaid = False
@@ -34,13 +35,13 @@ while True:
                         b"Your bill amount is to be paid : 72$\nPress Y(to pay now)/N:")
                     # if true then send the status of bill payment and if not paid would user like to pay it now?
                     # if false check client  bill id
-                topay = connection.recv(port)
-                if topay.decode() == "Y":
-                    ispaid = True
-                    connection.send(
-                        b"Your bill has been paid successfully")
-                else:
-                    connection.send(b"We will remind You again!")
+                    topay = connection.recv(port)
+                    if topay.decode() == "Y":
+                        ispaid = True
+                        connection.send(
+                            b"Your bill has been paid successfully")
+                    else:
+                        connection.send(b"We will remind You again!")
                 break
             else:
                 connection.send(b"Enter Correct Id:")
