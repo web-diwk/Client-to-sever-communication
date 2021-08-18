@@ -27,7 +27,7 @@ while True:
                 server_socket.sendto(b"Your bill is upto date", address)
             else:
                 server_socket.sendto(
-                    b"Your bill amount is to be paid : 72$\nPress Y(to pay now)/N:", address)
+                    b"Your bill amount is to be paid : 72$\nPress Y(to pay now)/Any other key to exit(to pay later):", address)
                 # if true then send the status of bill payment and if not paid would user like to pay it now?
                 # if false check client  bill id
                 topay, address = server_socket.recvfrom(BUFFER_SIZE)
