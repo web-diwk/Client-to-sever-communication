@@ -32,7 +32,7 @@ while True:
                     connection.send(b"Your bill is upto date")
                 else:
                     connection.send(
-                        b"Your bill amount is to be paid : 72$\nPress Y(to pay now)/N:")
+                        b"Your bill amount is to be paid : 72$\nPress Y(to pay now)/ Any other key to exit(to pay later):")
                     # if true then send the status of bill payment and if not paid would user like to pay it now?
                     # if false check client  bill id
                     topay = connection.recv(port)
