@@ -1,5 +1,5 @@
+# This is Server file for TCP implementation
 import socket
-
 
 ip_addr = "localhost"
 port = 2710
